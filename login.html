@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>evoting-login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+ 
+  .mr-b-10 {
+    text-transform: uppercase;
+    color: #5a6a70;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 1em;
+    /* margin-bottom: 40px; */
+}
+#outPopUp {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -200px 0 0 -260px;
+  
+}
+  </style>
+  <script>
+     
+
+/**
+ * method for auth
+ */
+function validate() {
+   var validationMessage=null;
+   var filterEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+   var ano = $('.aadhar_no').val();
+   var eno = $('.epic_no').val();
+   if (!ano) {
+      alert("please enter Aadhar Number");
+   } else if (!eno) {
+      alert("please enter EPIC Number");
+   } else{
+        return true;
+   }
+   if (validationMessage){
+      $('#validationMessage').text(validationMessage);
+      $('#validation').show();
+   } else
+      $('#validation').hide();   
+   return false;
+}
+</script>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" >
+ 
+<div class = "container-fluid" id = "outPopUp">
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="col-sm-6 col-12">
+        <center><img src = "../static/logo.png" style = "max-height:90px;padding-bottom:30px;"></center>
+        <div class="well well-lg" style = "background-color:#ffffff;">
+        <form action = "../login" method=post>
+           <div class="form-group">
+    <label for="AadharNo" style = "color:#000000;">Aadhar Number</label>
+    <input type="text" class="form-control aadhar_no" id="aadhar_no"  name="aadhar_no">
+  </div>
+          <div class="form-group" >
+    <label for="EPICno" style = "color:#000000;">EPIC Number</label>
+    <input type="text" class="form-control epic_no" name="epic_no" >
+  </div>
+          <button type="submit" class="btn btn-default btn-block" onclick="return validate()" style = "background-color:#e74c3c!important;color:#ffffff">Submit</button>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
